@@ -8,9 +8,16 @@ Code and Summary of Watershed algrithm
 
 ![Figure_2](https://github.com/user-attachments/assets/9ae61a84-2385-455b-a23b-c3a8703ca1ea)
 
+![CTFigure_1](https://github.com/user-attachments/assets/ee42f9ba-7328-4c1d-9167-5246c27f5370)
+
+![CTFigure_2](https://github.com/user-attachments/assets/93fb7240-8543-40e0-b2bd-6da98ac06f82)
+
 
 original fig
 ![tute2](https://github.com/user-attachments/assets/53ce82a3-89d7-430a-82a6-017e5b76f8df)
+
+![ct](https://github.com/user-attachments/assets/1c8ad9ee-5996-4c9f-a0e1-296f3ef20f25)
+
 
 # Conclusion and Summay
 

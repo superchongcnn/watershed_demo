@@ -1,0 +1,43 @@
+clc;close;clear;
+
+%% segmentation of binary images
+img1=im2bw(imread('binarytest.png'));
+figure(2);
+subplot(2,2,1);
+imshow(img1);title('bw');
+img1_distance=bwdist(img1);
+subplot(2,2,2);
+imshow(img1_distance,[]);title('bwdist(bw)');
+img1_not_distance=bwdist(~img1);
+subplot(2,2,3);
+imshow(img1_not_distance,[]);title('bwdist(~bw)');
+img1_neg_distance_not=-img1_not_distance;
+subplot(2,2,4);
+imshow(img1_neg_distance_not,[]);title('-bwdist(bw)');
+L=watershed(img1_neg_distance_not); % label matrix
+L(~img1) = 0; % Set pixels that are outside the ROI to 0
+rgb = label2rgb(L,'jet',[.5 .5 .5]);
+figure(3);
+imshow(rgb,[]);title('segmented binary image using watershed transform');
+
+%% segmentation of gray-scale images
+
+img2=imread('steelgrain.png');
+figure(4);
+imshow(img2,[]);title('steel grain');
+L22 = watershed(imcomplement(img2));
+L22(~img2) = 0;
+L22=rgb2gray(L22);
+L22new=double(L22)/double(max(L22(:)));
+figure(5);
+imshow(L22new,[]);title('oversegmentation');
+
+% suppressing shallow minima to avoid oversegmentation
+I2 = imcomplement(img2);
+I3 = imhmin(I2,20); %20 is the height threshold for suppressing shallow minima
+L2 = watershed(I3);
+L2(~img2) = 0;
+L2=rgb2gray(L2);
+L2new=double(L2)/double(max(L2(:)));
+figure(6);
+imshow(L2new,[]);title('oversegmentation resolved by shallow minima suppression');
